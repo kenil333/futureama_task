@@ -23,4 +23,8 @@ class AppText {
   static const String restart = "Restart";
   static const String checkInternet = "Please check your internet connection!";
   static const String exit = "Exit";
+  static const String areYouSure = "Are you sure?";
+  static const String doYouWantToExit = "Do you want to exit the app?";
+  static const String no = "No";
+  static const String yes = "Yes";
 }
