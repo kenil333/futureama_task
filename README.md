@@ -1,10 +1,22 @@
 # futureama_task
 
-A new Flutter project.
+A new Flutter Futureama Task Project project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+The starting point of the cod is the main.dart.
+
+To run the project there is a two way:
+1. Use an IDE like Android Studio or Visual Studio Code, IDEs provides the direct run mechanism.
+2. You can run the 'flutter run' command in the terminal of the project.
+
+To build the Android APK run the following command:
+
+'flutter build apk --split-per-abi'
+
+The above command results in 3 different APKs.
+
+
 
 A few resources to get you started if this is your first Flutter project:
 
