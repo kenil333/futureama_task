@@ -17,6 +17,8 @@ To build the Android APK run the following command:
 The above command results in 3 different APKs.
 
 
+In the Project structure, there is one directory called apk, which has the Android build, you can use that android build for testing also. (apk/quiztask.apk)
+
 
 A few resources to get you started if this is your first Flutter project:
 
