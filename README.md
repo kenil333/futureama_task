@@ -1,6 +1,6 @@
 # futureama_task
 
-A new Flutter Futureama Task Project project created with the flutter version 3.7.12.
+A new Flutter Futureama Task Project project was created with Flutter version 3.7.12.
 
 ## Getting Started
 
