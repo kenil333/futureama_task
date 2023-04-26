@@ -1,30 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class SplashScreen extends StatelessWidget {
+import '../../utils/app_constant.dart';
+import '../../utils/app_image.dart';
+import '../providers/info_provider.dart';
+
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 1)).then((value) async {
+      final InfoProvider infoProvider =
+          Provider.of<InfoProvider>(context, listen: false);
+      await infoProvider.fetchingInfo(context);
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: MobileColor.patientPrimaryColor,
+      backgroundColor: AppConstant.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
-              MobileImage.raxaLogo,
-              width: MobileMethods.getSize(size.width, 71),
-              fit: BoxFit.contain,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              MobileText.splashTxt,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: MobileMethods.getSize(size.width, 14),
-                color: MobileColor.authTxtColor,
-                fontWeight: FontWeight.w500,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                AppImage.appLogo,
+                width: size.width * 0.2,
+                fit: BoxFit.contain,
               ),
             ),
           ],
