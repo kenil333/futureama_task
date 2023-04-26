@@ -20,4 +20,7 @@ class AppText {
   static const String next = "Next";
   static const String result = "Result";
   static const String done = "Done";
+  static const String restart = "Restart";
+  static const String checkInternet = "Please check your internet connection!";
+  static const String exit = "Exit";
 }

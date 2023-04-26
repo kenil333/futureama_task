@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../utils/app_constant.dart';
+import '../../utils/app_method.dart';
 import '../../utils/app_text.dart';
 import '../widgets/custom_btn.dart';
+import 'quiz_screen.dart';
 
 class QuizResultScreen extends StatelessWidget {
   final int correct;
@@ -46,16 +48,28 @@ class QuizResultScreen extends StatelessWidget {
             const SizedBox(height: 30),
             Row(
               children: [
-                Expanded(child: Container()),
-                CustomBtn(
-                  size: size,
-                  title: AppText.done,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                  horizontalPadding: 20,
+                SizedBox(width: size.width * 0.08),
+                Expanded(
+                  child: CustomBtn(
+                    size: size,
+                    title: AppText.done,
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
                 ),
-                Expanded(child: Container()),
+                SizedBox(width: size.width * 0.08),
+                Expanded(
+                  child: CustomBtn(
+                    size: size,
+                    title: AppText.restart,
+                    onTap: () {
+                      AppMethod.pushReplacementRoute(
+                          context, const QuizScreen());
+                    },
+                  ),
+                ),
+                SizedBox(width: size.width * 0.08),
               ],
             ),
           ],

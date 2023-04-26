@@ -24,4 +24,21 @@ class AppMethod {
           builder: (_) => screen,
         ),
       );
+
+  static void pushAndRemoveAllRoute(
+    BuildContext context,
+    Widget screen, {
+    String? routeName,
+    String? untilRoute,
+    bool first = false,
+  }) =>
+      Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          settings: routeName != null ? RouteSettings(name: routeName) : null,
+          builder: (_) => screen,
+        ),
+        untilRoute != null
+            ? ModalRoute.withName(untilRoute)
+            : (route) => first ? route.isFirst : false,
+      );
 }

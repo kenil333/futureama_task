@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../data/model/character_model.dart';
 import '../../utils/app_color.dart';
 import '../../utils/app_constant.dart';
 import '../../utils/app_style.dart';
 import '../../utils/app_text.dart';
+import '../providers/character_provider.dart';
 import '../widgets/detail_value_widget.dart';
 
 class CharacterDetailScreen extends StatelessWidget {
@@ -13,6 +15,8 @@ class CharacterDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final CharacterProvider provider =
+        Provider.of<CharacterProvider>(context, listen: false);
     final Size size = MediaQuery.of(context).size;
     final double bottomPadding = MediaQuery.of(context).padding.bottom;
     return Scaffold(
@@ -130,13 +134,30 @@ class CharacterDetailScreen extends StatelessWidget {
                               ),
                             ),
                     ),
-                    child: Text(
-                      model.sayings[i],
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: AppConstant.textColor,
-                        fontWeight: FontWeight.w400,
-                      ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            model.sayings[i],
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: AppConstant.textColor,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: size.width * 0.03),
+                        InkWell(
+                          onTap: () {
+                            provider.speak(i, model.sayings[i]);
+                          },
+                          child: Icon(
+                            Icons.play_arrow_rounded,
+                            color: AppColor.primary.withOpacity(0.6),
+                            size: 20,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

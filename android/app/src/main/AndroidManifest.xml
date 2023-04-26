@@ -2,7 +2,7 @@
     package="com.example.futureama_task">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="Futureama"
+        android:label="Quiztask"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

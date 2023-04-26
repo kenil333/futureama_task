@@ -1,3 +1,4 @@
+import 'package:context_holder/context_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => QuizProvider()),
       ],
       child: MaterialApp(
-        title: 'Futureama',
+        title: 'Quiztask',
+        navigatorKey: ContextHolder.key,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.deepOrange,
